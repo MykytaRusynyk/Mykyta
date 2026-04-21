@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mykyta Rusynyk | Database Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.2rem; color: var(--primary); font-weight: bold; margin-bottom: 1.5rem; }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid #e2e8f0;
+            font-weight: 500;
+        }
+
+        .job {
+            margin-bottom: 2rem;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title { font-weight: bold; font-size: 1.1rem; }
+        .job-date { color: var(--gray); font-size: 0.9rem; }
+        .company { color: var(--primary); font-weight: 600; }
+
+        ul { margin-left: 1.2rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.4rem; }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray);
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 600px) {
+            .job-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Микита Русиник [cite: 1]</h1>
+    <div class="subtitle">Database Engineer [cite: 4]</div>
+    <div class="contact-info">
+        <a href="mailto:mykytarusynyk@gmail.com"><i class="fas fa-envelope"></i> mykytarusynyk@gmail.com [cite: 2]</a>
+        <span><i class="fas fa-phone"></i> +38 095 8830352 [cite: 2]</span>
+        <span><i class="fas fa-map-marker-alt"></i> Львів, Україна [cite: 2]</span>
+    </div>
+</header>
+
+<div class="container">
+    
+    <section>
+        <h2>Професійне резюме</h2>
+        <p>Інженер баз даних з великим досвідом розробки та управління рішеннями корпоративного рівня та систем Business Intelligence[cite: 4]. Експерт у SQL Server та хмарних платформах, таких як Azure та BigQuery[cite: 5].</p>
+    </section>
+
+    <section>
+        <h2>Технічні навички</h2>
+        <div class="skill-group">
+            <p><strong>Бази даних та BI:</strong> [cite: 38]</p>
+            <div class="skill-tags">
+                <span class="tag">MS SQL Server</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
+                <span class="tag">SSAS</span><span class="tag">SSIS</span><span class="tag">SSRS</span><span class="tag">Azure SQL</span> [cite: 44]
+            </div>
+            <br>
+            <p><strong>Хмарні платформи та інструменти:</strong> [cite: 39, 40]</p>
+            <div class="skill-tags">
+                <span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">Google BigQuery</span>
+                <span class="tag">Snowflake</span><span class="tag">DBT</span> [cite: 45, 46]
+            </div>
+            <br>
+            <p><strong>Програмування:</strong> [cite: 41]</p>
+            <div class="skill-tags">
+                <span class="tag">SQL</span><span class="tag">Java</span><span class="tag">JavaScript</span>
+                <span class="tag">NodeJS</span><span class="tag">NestJS</span> [cite: 47]
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Досвід роботи</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Database Engineer [cite: 14]</span>
+                <span class="job-date">Листопад 2022 - Теперішній час [cite: 15]</span>
+            </div>
+            <div class="company">Mine Tech Services [cite: 15]</div>
+            <ul>
+                <li>Проектування та впровадження масштабованих рішень баз даних на Azure[cite: 16].</li>
+                <li>Оптимізація складних збережених процедур та функцій[cite: 17].</li>
+                <li>Створення Azure DevOps CI/CD пайплайнів для автоматизації схем[cite: 21].</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Business Intelligence Engineer [cite: 22]</span>
+                <span class="job-date">Жовтень 2020 - Листопад 2022 [cite: 23]</span>
+            </div>
+            <div class="company">MedeAnalytics [cite: 23]</div>
+            <ul>
+                <li>Розробка BI-рішень з використанням Microsoft BI stack (SSAS, SSIS, SSRS)[cite: 24].</li>
+                <li>Створення сховищ даних та багатовимірних кубів[cite: 25].</li>
+                <li>Дизайн інтерактивних звітів та дашбордів для бізнесу[cite: 26].</li>
+            </ul>
+        </div>
+
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Front-End Developer [cite: 29]</span>
+                <span class="job-date">Листопад 2019 - Вересень 2020 [cite: 30]</span>
+            </div>
+            <div class="company">Anuitex [cite: 30]</div>
+            <ul>
+                <li>Розробка адаптивних веб-додатків на JavaScript та NodeJS[cite: 31].</li>
+                <li>Впровадження найкращих практик якості коду та тестування[cite: 33].</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Освіта</h2>
+        <div class="job-header">
+            <span class="job-title">Магістр комп'ютерних наук [cite: 36]</span>
+            <span class="job-date">2016 - 2021 [cite: 36]</span>
+        </div>
+        <div class="company">Харківський національний університет імені В. Н. Каразіна [cite: 36]</div>
+    </section>
+
+</div>
+
+<footer>
+    &copy; 2026 Mykyta Rusynyk. Базується на даних CV[cite: 1].
+</footer>
+
+</body>
+</html>
