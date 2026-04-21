@@ -1,338 +1,428 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Микита Русиник | Database Engineer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        :root {
-            --firmack-blue: #007bff;
-            --firmack-dark: #343a40;
-            --firmack-light: #f8f9fa;
-            --firmack-white: #ffffff;
-            --text-main: #333;
-            --text-secondary: #6c757d;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mykyta Rusynyk | Database Engineer</title>
+  <meta name="description" content="Mykyta Rusynyk — Database Engineer. Specialist in SQL Server, cloud platforms, and enterprise BI systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* Colors - Modern Dark Palette */
+      --bg-primary: #05070a;
+      --bg-secondary: #0f1218;
+      --bg-accent: rgba(255, 255, 255, 0.03);
+      
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      
+      --accent-primary: #6366f1; /* Indigo */
+      --accent-secondary: #8b5cf6; /* Violet */
+      --accent-glow: rgba(99, 102, 241, 0.5);
+      
+      --glass-bg: rgba(15, 18, 24, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --container-width: 1100px;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-            background-color: var(--firmack-white);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            line-height: 1.5;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+    .container { max-width: var(--container-width); margin: 0 auto; padding: 0 2rem; }
+    section { padding: 8rem 0; position: relative; }
+    .section-dark { background-color: var(--bg-secondary); }
 
-        /* Container to center content */
-        .main-container {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 2rem 1rem;
-        }
+    /* Navigation */
+    #navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 1.5rem 0; z-index: 1000; transition: var(--transition); }
+    #navbar.scrolled { background: var(--glass-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--glass-border); padding: 1rem 0; }
+    #navbar .container { display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-link { font-size: 0.9rem; font-weight: 500; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+    .nav-link:hover, .nav-link.active { color: var(--text-primary); }
 
-        /* Header Section */
-        header {
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 2rem;
-            margin-bottom: 2.5rem;
-        }
+    /* Hero */
+    .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; z-index: -1; }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px); background-size: 50px 50px; mask-image: radial-gradient(circle at center, black, transparent 80%); }
+    .hero-glow { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.15; }
+    .glow-1 { width: 400px; height: 400px; background: var(--accent-primary); top: -100px; right: -100px; }
+    .glow-2 { width: 500px; height: 500px; background: var(--accent-secondary); bottom: -200px; left: -200px; }
+    .hero-content { max-width: 800px; padding: 0 2rem; }
+    .hero-badge { display: inline-block; padding: 0.5rem 1rem; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.2); border-radius: 100px; font-size: 0.75rem; font-weight: 600; color: var(--accent-primary); margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .hero-name { font-size: clamp(3rem, 8vw, 5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero-title { font-family: var(--font-mono); font-size: clamp(1.2rem, 3vw, 1.5rem); color: var(--accent-primary); margin-bottom: 1.5rem; }
+    .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 3rem; max-width: 600px; margin: 0 auto 3rem auto; }
+    
+    .btn { display: inline-block; padding: 1rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: var(--transition); border: none; }
+    .btn-primary { background: var(--accent-primary); color: #fff; box-shadow: 0 10px 20px -10px var(--accent-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 15px 30px -10px var(--accent-glow); }
+    .btn-outline { border: 1px solid var(--glass-border); color: var(--text-primary); background: rgba(255, 255, 255, 0.03); }
+    .btn-outline:hover { background: rgba(255, 255, 255, 0.08); border-color: var(--text-secondary); }
+    .hero-actions { display: flex; gap: 1.5rem; justify-content: center; }
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--firmack-dark);
-            margin: 0 0 10px 0;
-        }
+    /* Forms & Components */
+    .section-header { margin-bottom: 4rem; }
+    .section-tag { font-family: var(--font-mono); color: var(--accent-primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; margin-bottom: 0.5rem; display: block; }
+    .section-title { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; }
+    .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; align-items: center; }
+    .about-lead { font-size: 1.25rem; color: var(--text-primary); margin-bottom: 1.5rem; font-weight: 500; }
+    .about-text p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+    .about-list { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    .about-list li { padding-left: 1.5rem; position: relative; color: var(--text-secondary); }
+    .about-list li::before { content: "→"; position: absolute; left: 0; color: var(--accent-primary); }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .stat-card { background: var(--bg-accent); border: 1px solid var(--glass-border); padding: 2rem; border-radius: 16px; text-align: center; }
+    .stat-number { display: block; font-size: 2.5rem; font-weight: 800; color: var(--accent-primary); margin-bottom: 0.5rem; }
+    .stat-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 20px;
-        }
+    /* Skills */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2.5rem; }
+    .skill-category { background: var(--bg-primary); border: 1px solid var(--glass-border); padding: 2.5rem; border-radius: 16px; transition: var(--transition); border-left: 4px solid transparent; }
+    .skill-category:hover { border-left-color: var(--accent-primary); background: var(--bg-secondary); }
+    .skill-cat-title { font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700; color: var(--text-primary); }
+    .skill-chips { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .skill-chip { padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 8px; font-size: 0.85rem; color: var(--text-secondary); cursor: pointer; transition: var(--transition); }
+    .skill-chip:hover, .skill-chip.active { background: var(--accent-primary); color: #fff; border-color: var(--accent-primary); }
 
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.95rem;
-        }
+    /* Experience */
+    .exp-timeline { display: flex; flex-direction: column; gap: 3rem; }
+    .exp-card { background: var(--bg-secondary); border: 1px solid var(--glass-border); padding: 2.5rem; border-radius: 20px; transition: var(--transition); position: relative; overflow: hidden; border-left: 4px solid transparent; }
+    .exp-card:hover { border-left-color: var(--accent-primary); box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5); }
+    .exp-card.dimmed { opacity: 0.3; filter: grayscale(1); }
+    .exp-card-header { margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; }
+    .exp-role { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); }
+    .exp-period { font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-primary); }
+    .exp-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .exp-tag { font-size: 0.7rem; padding: 0.25rem 0.75rem; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); border-radius: 4px; color: var(--text-muted); }
+    .exp-bullets { display: flex; flex-direction: column; gap: 1rem; }
+    .exp-bullets li { color: var(--text-secondary); padding-left: 1.5rem; position: relative; }
+    .exp-bullets li::before { content: ""; position: absolute; left: 0; top: 0.6rem; width: 6px; height: 6px; background: var(--accent-primary); border-radius: 50%; }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-secondary);
-        }
+    .edu-card { display: flex; gap: 2rem; background: var(--bg-accent); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--glass-border); align-items: center; }
+    .edu-icon { font-size: 3rem; background: rgba(99, 102, 241, 0.1); width: 80px; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 50%; }
 
-        .contact-item a {
-            color: var(--text-secondary);
-            text-decoration: none;
-        }
+    .contact-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .contact-btn { display: flex; align-items: center; gap: 0.75rem; padding: 1.25rem 2rem; background: var(--bg-secondary); border: 1px solid var(--glass-border); border-radius: 12px; font-weight: 600; transition: var(--transition); }
+    .contact-btn:hover { background: var(--accent-primary); border-color: var(--accent-primary); transform: translateY(-5px); }
+    .footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--glass-border); color: var(--text-muted); font-size: 0.9rem; }
 
-        .contact-item i {
-            color: var(--firmack-dark);
-        }
+    @media (max-width: 768px) {
+      section { padding: 5rem 0; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; }
+      .edu-card { flex-direction: column; text-align: center; }
+    }
 
-        /* Section Styling */
-        section {
-            margin-bottom: 2.5rem;
-        }
-
-        section h2 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: var(--firmack-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Summary Styling */
-        .summary {
-            font-size: 1.1rem;
-            color: var(--text-main);
-        }
-
-        /* Skills Styling (Tags like Firmack) */
-        .skill-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-group h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--firmack-dark);
-            margin-bottom: 0.75rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            background-color: var(--firmack-blue);
-            color: var(--firmack-white);
-            padding: 0.25rem 0.6rem;
-            font-size: 0.8rem;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        /* Experience Styling */
-        .job {
-            border-bottom: 1px solid #e9ecef;
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .job:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .job-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.5rem;
-        }
-
-        .job-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--firmack-dark);
-        }
-
-        .job-company-date {
-            text-align: right;
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .company-name {
-            font-weight: 600;
-            display: block;
-        }
-
-        .job-date {
-            display: block;
-        }
-
-        .job-details ul {
-            margin: 0.75rem 0 0 1.2rem;
-            padding: 0;
-            list-style-type: disc;
-        }
-
-        .job-details li {
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
-
-        /* Education Styling */
-        .education {
-            margin-bottom: 1rem;
-        }
-
-        .education-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--firmack-dark);
-        }
-
-        .education-meta {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Footer Styling */
-        footer {
-            border-top: 1px solid #e9ecef;
-            padding: 2rem 0;
-            text-align: center;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Responsiveness for Mobile */
-        @media (max-width: 768px) {
-            header h1 { font-size: 2.25rem; }
-            .job-header { flex-direction: column; }
-            .job-company-date { text-align: left; margin-top: 0.25rem; }
-            .contact-info { gap: 10px; }
-        }
-    </style>
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
 <body>
 
-    <div class="main-container">
-
-        <header>
-            <h1>Микита Русиник</h1>
-            <div class="subtitle">Database Engineer</div>
-            
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:mykytarusynyk@gmail.com">mykytarusynyk@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <span>+38 095 8830352</span>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Львів, Україна</span>
-                </div>
-            </div>
-        </header>
-
-        <section>
-            <h2>Професійне резюме</h2>
-            <div class="summary">
-                <p>Інженер баз даних з великим досвідом розробки та управління рішеннями корпоративного рівня та систем Business Intelligence[cite: 4]. Експерт у SQL Server та хмарних платформах, таких як Azure та BigQuery[cite: 5]. Має підтверджений досвід розгортання складних рішень для даних, що підвищують ефективність бізнесу[cite: 6].</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Технічні навички</h2>
-            
-            <div class="skill-group">
-                <h4>Бази даних та BI</h4>
-                <div class="skill-tags">
-                    <span class="tag">Microsoft SQL Server</span><span class="tag">MySQL</span><span class="tag">MongoDB</span>
-                    <span class="tag">SSAS</span><span class="tag">SSIS</span><span class="tag">SSRS</span><span class="tag">Azure SQL Database</span>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <h4>Хмарні платформи та інструменти даних</h4>
-                <div class="skill-tags">
-                    <span class="tag">Azure</span><span class="tag">Databricks</span><span class="tag">Google BigQuery</span>
-                    <span class="tag">Snowflake</span><span class="tag">DBT (Data Build Tool)</span>
-                </div>
-            </div>
-
-            <div class="skill-group">
-                <h4>Програмування та розробка</h4>
-                <div class="skill-tags">
-                    <span class="tag">SQL</span><span class="tag">Java</span><span class="tag">JavaScript</span>
-                    <span class="tag">NodeJS</span><span class="tag">NestJS</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Досвід роботи</h2>
-
-            <div class="job">
-                <div class="job-header">
-                    <div class="job-title">Database Engineer</div>
-                    <div class="job-company-date">
-                        <span class="company-name">Mine Tech Services</span>
-                        <span class="job-date">Листопад 2022 - Теперішній час</span>
-                    </div>
-                </div>
-                <div class="job-details">
-                    <ul>
-                        <li>Розробка та впровадження масштабованих рішень баз даних на SQL Server та Azure SQL[cite: 16].</li>
-                        <li>Оптимізація складних збережених процедур, функцій та об'єктів баз даних[cite: 17].</li>
-                        <li>Створення Azure DevOps CI/CD пайплайнів для автоматизації розгортання схем[cite: 21].</li>
-                        <li>Співпраця зі стейкхолдерами для збору вимог та перетворення бізнес-потреб у технічні рішення[cite: 19].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div class="job-title">Business Intelligence Engineer</div>
-                    <div class="job-company-date">
-                        <span class="company-name">MedeAnalytics</span>
-                        <span class="job-date">Жовтень 2020 - Листопад 2022</span>
-                    </div>
-                </div>
-                <div class="job-details">
-                    <ul>
-                        <li>Розробка BI-рішень з використанням Microsoft BI stack (SSAS, SSIS, SSRS)[cite: 24].</li>
-                        <li>Створення та обслуговування сховищ даних та багатовимірних кубів[cite: 25].</li>
-                        <li>Дизайн інтерактивних звітів та дашбордів для бізнесу[cite: 26].</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="job">
-                <div class="job-header">
-                    <div class="job-title">Front-End Developer</div>
-                    <div class="job-company-date">
-                        <span class="company-name">Anuitex</span>
-                        <span class="job-date">Листопад 2019 - Вересень 2020</span>
-                    </div>
-                </div>
-                <div class="job-details">
-                    <ul>
-                        <li>Розробка адаптивних веб-додатків на JavaScript та NodeJS[cite: 31].</li>
-                        <li>Впровадження найкращих практик для забезпечення якості коду та тестування[cite: 33].</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Освіта</h2>
-            <div class="education">
-                <div class="education-title">Магістр комп'ютерних наук</div>
-                <div class="education-meta">
-                    Харківський національний університет імені В. Н. Каразіна, 2016 - 2021
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            &copy; 2026 Микита Русиник. Всі права захищені. Базується на даних резюме.
-        </footer>
-
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar">
+    <div class="container">
+      <a href="#main" class="nav-logo"></a>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About Me</a></li>
+        <li><a href="#skills" class="nav-link">Skills &amp; Tools</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
+  <!-- ========== HERO ========== -->
+  <section id="main" class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow glow-1"></div>
+      <div class="hero-glow glow-2"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Exploring New Opportunities</div>
+      <h1 class="hero-name">Mykyta Rusynyk</h1>
+      <p class="hero-title">Database Engineer</p>
+      <p class="hero-subtitle">Database Engineer with extensive experience in designing, developing, and managing enterprise-level database solutions and Business Intelligence systems. Proven expertise in SQL Server, cloud platforms, and modern BI tools.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#experience" class="btn btn-outline">Professional Experience</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01 — Expertise</span>
+        <h2 class="section-title">About Me</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="about-lead">I am a Database Development specialist focused on creating reliable, structured, and high-load data architectures.</p>
+          <p>My core focus is <strong>Database Engineering</strong>. I design database schemas that don't fail under pressure and write T-SQL that scales. While I have background in Front-End development, my career and passion are dedicated to the back-end data layer: architecture, optimization, and ETL/BI logic.</p>
+          <p>Key focus areas:</p>
+          <ul class="about-list">
+            <li><strong>Database Design:</strong> Relational modeling and schema architecture for high-concurrency systems.</li>
+            <li><strong>Optimization:</strong> Deep-level query tuning, indexing strategies, and execution plan analysis.</li>
+            <li><strong>ETL & BI:</strong> Building robust data movement pipelines (SSIS) and analytical models (SSAS, Power BI).</li>
+            <li><strong>Automation:</strong> Implementing CI/CD for database deployments safely across environments.</li>
+            <li><strong>Full-Stack Support:</strong> Leveraging front-end experience to build better data-driven interfaces when needed.</li>
+          </ul>
+          <p>I hold a Master's degree in Computer Science and thrive in environments where data integrity and performance are mission-critical.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Years of SQL focus</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">MS</span>
+            <span class="stat-label">Computer Science</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02 — Tech Stack</span>
+        <h2 class="section-title">Skills &amp; Tools</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Database & BI</h3>
+          <div class="skill-chips">
+            <button class="skill-chip" data-skill="sql-server">SQL Server</button>
+            <button class="skill-chip" data-skill="mysql">MySQL</button>
+            <button class="skill-chip" data-skill="mongodb">MongoDB</button>
+            <button class="skill-chip" data-skill="ssas">SSAS</button>
+            <button class="skill-chip" data-skill="ssis">SSIS</button>
+            <button class="skill-chip" data-skill="ssrs">SSRS</button>
+            <button class="skill-chip" data-skill="azure-sql">Azure SQL Database</button>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Cloud Platforms</h3>
+          <div class="skill-chips">
+            <button class="skill-chip" data-skill="azure">Azure SQL</button>
+            <button class="skill-chip" data-skill="databricks">Databricks</button>
+            <button class="skill-chip" data-skill="bigquery">Google BigQuery</button>
+            <button class="skill-chip" data-skill="snowflake">Snowflake</button>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Data & Prog.</h3>
+          <div class="skill-chips">
+            <button class="skill-chip" data-skill="dbt">DBT</button>
+            <button class="skill-chip" data-skill="etl">ETL/ELT Pipelines</button>
+            <button class="skill-chip" data-skill="sql">SQL</button>
+            <button class="skill-chip" data-skill="javascript">JavaScript</button>
+            <button class="skill-chip" data-skill="nodejs">NodeJS</button>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Management & Tools</h3>
+          <div class="skill-chips">
+            <button class="skill-chip" data-skill="vsc">VS Code</button>
+            <button class="skill-chip" data-skill="git">Git</button>
+            <button class="skill-chip" data-skill="jira">Jira/Kanban</button>
+            <button class="skill-chip" data-skill="agile">Agile</button>
+          </div>
+        </div>
+      </div>
+      <p class="section-intro" style="margin-top: 3rem; opacity: 0.7;">Filtering my experience based on core Database & BI competencies.</p>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03 — Career Timeline</span>
+        <h2 class="section-title">Professional Experience</h2>
+      </div>
+
+      <div class="exp-timeline">
+
+        <div class="exp-card" data-skills="sql-server,sql,etl,azure,azure-devops,snowflake">
+          <div class="exp-card-header">
+            <div class="exp-meta">
+              <span class="exp-role">Database Engineer</span>
+              <div style="font-weight: 500; font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.25rem;">Mine Tech Services</div>
+              <span class="exp-period">Nov 2022 — Present</span>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">SQL Server</span>
+              <span class="exp-tag">Azure SQL</span>
+              <span class="exp-tag">ETL/ELT</span>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Design and implement scalable database solutions using SQL Server, Azure SQL, and cloud-based platforms.</li>
+            <li>Develop and optimize complex stored procedures, functions, and database objects for improved performance.</li>
+            <li>Build and maintain ETL/ELT pipelines using modern data engineering tools and best practices.</li>
+            <li>Collaborate with stakeholders to gather requirements and translate business needs into technical solutions.</li>
+            <li>Ensure data integrity, security, and compliance with industry standards.</li>
+            <li>Built Azure DevOps CI/CD pipelines for automated schema deployments, removing manual steps.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card" data-skills="ssas,ssis,ssrs,sql,t-sql,jira,agile">
+          <div class="exp-card-header">
+            <div class="exp-meta">
+              <span class="exp-role">Business Intelligence Engineer</span>
+              <div style="font-weight: 500; font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.25rem;">MedeAnalytics</div>
+              <span class="exp-period">Oct 2020 — Nov 2022</span>
+            </div>
+            <div class="exp-tags">
+              <span class="exp-tag">MS BI Stack</span>
+              <span class="exp-tag">SSAS/SSIS/SSRS</span>
+              <span class="exp-tag">Data Warehouse</span>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed comprehensive BI solutions using Microsoft BI stack (SSAS, SSIS, SSRS).</li>
+            <li>Created and maintained data warehouses, data marts, and multidimensional cubes.</li>
+            <li>Designed interactive reports and dashboards to support data-driven decision making.</li>
+            <li>Optimized data models and queries to enhance system performance and user experience.</li>
+            <li>Worked in Agile environment using Jira and other project management tools.</li>
+          </ul>
+        </div>
+
+        <div class="exp-card" data-skills="javascript,nodejs,git,bitbucket,vscode">
+          <div class="exp-card-header">
+            <div class="exp-meta">
+              <span class="exp-role">Front-End Developer</span>
+              <div style="font-weight: 500; font-size: 1.1rem; color: var(--text-secondary); margin-top: 0.25rem;">Anuitex</div>
+              <span class="exp-period">Nov 2019 — Sep 2020</span>
+            </div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Developed responsive web applications using JavaScript, NodeJS, and modern front-end frameworks.</li>
+            <li>Collaborated with cross-functional teams to deliver high-quality software solutions.</li>
+            <li>Implemented best practices for code quality, testing, and version control (Git, Bitbucket).</li>
+            <li>Participated in code reviews and contributed to technical documentation.</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Education -->
+      <div id="education" style="margin-top: 5rem;">
+        <div class="section-header">
+          <span class="section-tag">04 — Foundations</span>
+          <h2 class="section-title">Education</h2>
+        </div>
+        <div class="edu-card">
+          <div class="edu-icon">🎓</div>
+          <div class="edu-detail">
+            <h3 class="edu-degree">Master of Science in Computer Science</h3>
+            <p class="edu-school">V.N. Karazin National University</p>
+            <p class="edu-desc">In-depth study of database management systems, algorithm optimization, and data structures. (2016 – 2021)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">05 — Career Inquiry</span>
+        <h2 class="section-title">Contact</h2>
+      </div>
+      <p class="contact-intro"></p>
+      <div class="contact-links">
+        <a href="mailto:mykytarusynyk@gmail.com" class="contact-btn">Email Me</a>
+        <a href="https://www.linkedin.com/in/mykyta-rusynyk-725524276/" target="_blank" class="contact-btn">LinkedIn Profile</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© Mykyta Rusynyk. Database Engineering Portfolio.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
+        });
+
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => { if (window.scrollY >= (s.offsetTop - 200)) current = s.getAttribute('id'); });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) link.classList.add('active');
+            });
+        });
+
+        const skillChips = document.querySelectorAll('.skill-chip');
+        const expCards = document.querySelectorAll('.exp-card');
+        skillChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const skill = chip.getAttribute('data-skill');
+                if (chip.classList.contains('active')) {
+                    chip.classList.remove('active');
+                    expCards.forEach(c => { c.classList.remove('dimmed'); c.style.transform = 'scale(1)'; });
+                } else {
+                    skillChips.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+                    expCards.forEach(card => {
+                        const skills = card.getAttribute('data-skills').split(',');
+                        if (skills.includes(skill)) {
+                            card.classList.remove('dimmed');
+                            card.style.transform = 'scale(1.02)';
+                        } else {
+                            card.classList.add('dimmed');
+                            card.style.transform = 'scale(0.98)';
+                        }
+                    });
+                }
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.section, .exp-card, .skill-category, .stat-card');
+        function revealOnScroll() {
+            revealElements.forEach(el => {
+                if (el.getBoundingClientRect().top < (window.innerHeight * 0.9)) el.classList.add('reveal', 'active');
+            });
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    });
+  </script>
 </body>
 </html>
